@@ -1,9 +1,22 @@
   <html>
-  <p>my code block html</p>
-  <ul id="list"></ul>
+      <ul id="list"></ul>
 <label>Enter another link </label><input type="text" id="userinput"> 
+<button id="button">submit</button>
+
+<label>Enter the name of link </label><input type="text" id="userinput2"> 
+<button id="button2">submit</button>
 <script>
 var nameLinks, links;
+
+function getNumberOrString(value) {
+  // Convert a string value to a number if possible
+  let number_value = Number(value);
+  if (Number.isNaN(number_value)) {
+    return value
+  } else {
+    return number_value
+  }
+}
 
 // Describe this function...
 function itemdisplay() {
@@ -26,6 +39,19 @@ function itemdisplay() {
 nameLinks = ['Manchester United', 'BBC', 'SkyNews'];
 links = ['https://www.manutd.com/', 'https://www.bbc.co.uk/', 'https://news.sky.com/'];
 itemdisplay();
+
+
+document.getElementById('button').addEventListener('click', (event) => {
+  links.push(getNumberOrString(document.getElementById('userinput').value));
+  itemdisplay();
+
+});
+
+document.getElementById('button2').addEventListener('click', (event) => {
+  nameLinks.push(getNumberOrString(document.getElementById('userinput2').value));
+  itemdisplay();
+
+});
 
 </script>
 
